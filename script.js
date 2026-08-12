@@ -21,6 +21,10 @@
     stat_cities:   { es:"Ciudades · Montería, Medellín, Maracaibo", en:"Cities · Montería, Medellín, Maracaibo" },
     stat_lang:     { es:"Atención bilingüe", en:"Bilingual care" },
     hero_badge:    { es:"Cuenta de Instagram verificada · @dra.alejandracastanov", en:"Verified Instagram account · @dra.alejandracastanov" },
+    ig_posts:      { es:"publicaciones", en:"posts" },
+    ig_followers:  { es:"seguidores", en:"followers" },
+    ig_following:  { es:"seguidos", en:"following" },
+    ig_cta:        { es:"Ver perfil en Instagram", en:"View Instagram profile" },
 
     trust_1:{ es:"Seguidoras en Instagram", en:"Instagram followers" },
     trust_2:{ es:"Ciudades con atención", en:"Cities served" },
