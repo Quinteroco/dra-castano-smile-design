@@ -199,6 +199,24 @@
     else{ topbar.style.background = "rgba(11,11,12,.72)"; }
   });
 
+  /* ================= Instagram stats (live-ready) =================
+     Reads assets/followers.json — a static file today, refreshed by
+     hand. Once the account is connected via the Instagram Graph API,
+     a scheduled GitHub Action can overwrite this file automatically
+     and the numbers below update with zero code changes. */
+  fetch("assets/followers.json", { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){
+      if(!data) return;
+      var stats = document.querySelectorAll(".ig-stats b");
+      if(stats.length === 3){
+        stats[0].textContent = data.posts;
+        stats[1].textContent = data.display;
+        stats[2].textContent = data.following;
+      }
+    })
+    .catch(function(){ /* keep the values already in the HTML */ });
+
   /* ================= Demo contact form ================= */
   var form = document.getElementById("demoForm");
   if(form){
