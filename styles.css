@@ -292,6 +292,7 @@ h1,h2,h3,p{margin:0;}
 /* Hero visual: abstract porcelain arc composition */
 .hero-visual{
   position:relative;
+  width:100%;
   aspect-ratio:4/5;
   border-radius:6px;
   background:linear-gradient(165deg, var(--panel), var(--ink-2));
