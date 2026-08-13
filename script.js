@@ -1,233 +1,289 @@
-(function(){
-  "use strict";
+/* ===========================================================
+   script.js — nav, i18n (ES/EN), reveal-on-scroll, before/after,
+   tech-spec counters. Vanilla JS, no dependencies.
+   =========================================================== */
 
-  /* ================= i18n dictionary ================= */
-  var dict = {
-    logo_tag:      { es:"Arte en tu sonrisa", en:"Art in your smile" },
-    logo_tag2:     { es:"Arte en tu sonrisa", en:"Art in your smile" },
-    nav_services:  { es:"Servicios", en:"Services" },
-    nav_results:   { es:"Antes y Después", en:"Before &amp; After" },
-    nav_tourism:   { es:"Pacientes Internacionales", en:"International Patients" },
-    nav_testimonials:{ es:"Testimonios", en:"Testimonials" },
-    nav_contact:   { es:"Contacto", en:"Contact" },
-    nav_cta:       { es:"Agenda tu cita", en:"Book a Visit" },
+/* ---------------- i18n ---------------- */
+const translations = {
+  es: {
+    nav_tech: "Tecnología", nav_services: "Tratamientos", nav_results: "Resultados",
+    nav_tourism: "Pacientes Internacionales", nav_contact: "Contacto", nav_cta: "Agenda tu valoración",
+    logo_tag: "Arte en tu sonrisa", logo_tag2: "Arte en tu sonrisa",
 
-    hero_eyebrow:  { es:"Diseño de sonrisa · Odontología estética premium", en:"Smile Design · Premium Cosmetic Dentistry" },
-    hero_h1:       { es:'El arte de una sonrisa <em>perfecta</em>, diseñada para ti', en:'The art of a <em>perfect</em> smile, designed for you' },
-    hero_lede:     { es:"Diseño de sonrisa y lentes cerámicos de alta precisión en Montería, Colombia — con pacientes que viajan desde Estados Unidos, Venezuela y toda Latinoamérica para transformar su sonrisa.", en:"Precision smile design and porcelain veneers in Montería, Colombia — trusted by patients who travel from the United States, Venezuela and across Latin America to transform their smile." },
-    hero_cta_primary:{ es:"Reserva tu valoración", en:"Book Your Consultation" },
-    hero_cta_secondary:{ es:"Ver servicios", en:"View Services" },
-    stat_community:{ es:"Comunidad en Instagram", en:"Instagram community" },
-    stat_cities:   { es:"Ciudades · Montería, Medellín, Maracaibo", en:"Cities · Montería, Medellín, Maracaibo" },
-    stat_lang:     { es:"Atención bilingüe", en:"Bilingual care" },
-    hero_badge:    { es:"Cuenta de Instagram verificada · @dra.alejandracastanov", en:"Verified Instagram account · @dra.alejandracastanov" },
-    ig_posts:      { es:"publicaciones", en:"posts" },
-    ig_followers:  { es:"seguidores", en:"followers" },
-    ig_following:  { es:"seguidos", en:"following" },
-    ig_cta:        { es:"Ver perfil en Instagram", en:"View Instagram profile" },
+    hero_bg_word: "PRECISIÓN",
+    hero_eyebrow: "Ortodoncia de precisión · Montería, Colombia",
+    hero_h1: "Sonrisas diseñadas con la tecnología más avanzada de la región",
+    hero_lede: "Escaneo digital 3D, planeación milimétrica y un consultorio pensado para la calma — para que pacientes de Estados Unidos y toda Latinoamérica puedan evaluar y confiar en su tratamiento antes incluso de viajar.",
+    hero_cta_primary: "Reserva tu valoración virtual",
+    hero_cta_secondary: "Ver nuestra tecnología",
+    stat_community: "Comunidad en Instagram",
+    stat_precision: "Precisión de escaneo digital",
+    stat_lang: "Atención bilingüe",
 
-    trust_1:{ es:"Seguidoras en Instagram", en:"Instagram followers" },
-    trust_2:{ es:"Ciudades con atención", en:"Cities served" },
-    trust_3:{ es:"Idiomas · ES / EN", en:"Languages · EN / ES" },
-    trust_4:{ es:"Diseño personalizado", en:"Custom-designed" },
+    spec_scan_label: "ESCANEO 3D", spec_material_label: "CERÁMICA", spec_material_value: "Alta translucidez",
+    veneer_caption: "Modelo 3D interactivo — arrastra para girar",
 
-    services_eyebrow:{ es:"Servicios", en:"Services" },
-    services_h2:{ es:"Cada sonrisa se <em>diseña</em>, no se improvisa", en:"Every smile is <em>designed</em>, never improvised" },
-    services_p:{ es:"Procedimientos de odontología estética de alta precisión, planeados digitalmente antes de tocar un solo diente.", en:"High-precision cosmetic dentistry, planned digitally before a single tooth is touched." },
+    trust_1: "Escáner intraoral, sin moldes", trust_2: "Curado de última generación",
+    trust_3: "Pacientes que nos siguen", trust_4: "Atención bilingüe",
 
-    svc1_h:{ es:"Diseño de sonrisa", en:"Smile Design" },
-    svc1_p:{ es:"Planeación digital 3D de tu nueva sonrisa antes de iniciar cualquier procedimiento.", en:"Digital 3D planning of your new smile before any procedure begins." },
-    svc2_h:{ es:"Lentes cerámicos", en:"Porcelain Veneers" },
-    svc2_p:{ es:"Porcelain veneers de mínima invasión para un resultado natural y duradero.", en:"Minimally invasive porcelain veneers for a natural, long-lasting result." },
-    svc3_h:{ es:"Blanqueamiento dental", en:"Teeth Whitening" },
-    svc3_p:{ es:"Aclaramiento profesional supervisado, sin sensibilidad, con resultados visibles.", en:"Supervised professional whitening, low sensitivity, visible results." },
-    svc4_h:{ es:"Carillas de resina", en:"Composite Veneers" },
-    svc4_p:{ es:"Alternativa conservadora y económica para corregir forma, color y espacios.", en:"A conservative, cost-effective way to correct shape, color and spacing." },
-    svc5_h:{ es:"Rehabilitación oral estética", en:"Full Smile Rehabilitation" },
-    svc5_p:{ es:"Restauración integral de casos complejos combinando función y estética.", en:"Comprehensive restoration of complex cases, combining function and aesthetics." },
-    svc6_h:{ es:"Ortodoncia invisible", en:"Clear Aligners" },
-    svc6_p:{ es:"Alineadores transparentes para complementar tu diseño de sonrisa.", en:"Clear aligners that complement your smile design." },
+    problem_eyebrow: "El reto de evaluar a distancia",
+    problem_h2: "Elegir un consultorio en otro país no debería sentirse como un salto de fe",
+    problem_p: "La mayoría de pacientes internacionales solo tienen fotos y reseñas para decidir dónde confiar su sonrisa. Nosotros creemos que deberías poder ver la tecnología, el espacio y el proceso exacto — antes de reservar un vuelo.",
 
-    ba_before:{ es:"Antes", en:"Before" },
-    ba_after:{ es:"Después", en:"After" },
-    ba_caption:{ es:"Vista previa interactiva — se reemplazará con casos reales aprobados por la doctora", en:"Interactive preview — will be replaced with real cases approved by the doctor" },
-    ba_eyebrow:{ es:"Resultados", en:"Results" },
-    ba_h2:{ es:'Arrastra y descubre la <em style="font-style:italic;color:var(--orange-soft)">transformación</em>', en:'Drag to reveal the <em style="font-style:italic;color:var(--orange-soft)">transformation</em>' },
-    ba_li1:{ es:"Planeación digital previa: sabes cómo lucirá tu sonrisa antes de empezar.", en:"Digital preview first: you see how your smile will look before starting." },
-    ba_li2:{ es:"Materiales de porcelana de alta gama, resistentes y de aspecto natural.", en:"High-grade porcelain materials — durable and natural-looking." },
-    ba_li3:{ es:"Seguimiento fotográfico documentado en cada etapa del proceso.", en:"Documented photographic follow-up at every stage of treatment." },
+    pillars_eyebrow: "Nuestro enfoque",
+    pillars_h2: 'Tres razones por las que <em>viajan</em> hasta Montería',
+    pillar1_h: "Tecnología que otros consultorios no tienen",
+    pillar1_p: "Escáner intraoral 3Shape TRIOS 3 y lámpara de curado VALO X: mismos equipos que las clínicas líderes de Miami y Nueva York.",
+    pillar2_h: "Ves tu resultado antes de empezar",
+    pillar2_p: "Diseño digital 3D de tu sonrisa y tu plan de ortodoncia, para que apruebes cada detalle antes de tocar un solo diente.",
+    pillar3_h: "Un espacio diseñado para la calma",
+    pillar3_p: "Madera cálida, luz natural y líneas limpias — pensado para que la visita al odontólogo se sienta como todo menos una visita al odontólogo.",
 
-    tourism_eyebrow:{ es:"Pacientes internacionales", en:"International Patients" },
-    tourism_h2:{ es:'Tu sonrisa, tu <em style="font-style:italic;color:var(--orange-soft)">próximo viaje</em>', en:'Your smile, your <em style="font-style:italic;color:var(--orange-soft)">next trip</em>' },
-    tourism_p:{ es:"Cada vez más pacientes de Estados Unidos y Latinoamérica combinan un tratamiento de odontología estética premium con unos días en Colombia. Coordinamos tu plan de tratamiento antes de tu llegada para optimizar cada visita.", en:"More patients from the U.S. and across Latin America are pairing premium cosmetic dentistry with a few days in Colombia. We plan your treatment before you arrive so every visit counts." },
-    tourism_cta:{ es:"Planear mi viaje y tratamiento", en:"Plan My Trip &amp; Treatment" },
-    tourism_row1:{ es:"Costo promedio en EE.UU.", en:"Average cost in the U.S." },
-    tourism_price1:{ es:"$$$$", en:"$$$$" },
-    tourism_row2:{ es:"Con Dra. Castaño en Montería", en:"With Dr. Castaño in Montería" },
-    tourism_price2:{ es:"$$", en:"$$" },
-    tourism_row3:{ es:"Incluye coordinación de tu visita", en:"Includes visit coordination" },
-    tourism_price3:{ es:"Sí", en:"Yes" },
-    tourism_note:{ es:"*Referencial. Los procedimientos de odontología estética en Colombia suelen tener un costo significativamente menor que en Estados Unidos, manteniendo estándares internacionales de calidad. Valores exactos se confirman en la valoración.", en:"*For reference only. Cosmetic dentistry procedures in Colombia are typically significantly lower cost than in the U.S., while maintaining international quality standards. Exact pricing is confirmed at your consultation." },
+    tech_eyebrow: "Tecnología · Precisión digital", tech_word_1: "CONFIANZA",
+    tech_lede: "Cada carilla y cada movimiento ortodóntico se planea primero en digital, con datos exactos — no a ojo.",
+    tspec1_unit: "mm de margen de error", tspec1_label: "Escaneo intraoral 3Shape TRIOS 3 — sin moldes ni impresiones incómodas.",
+    tspec2_unit: "% del plan, digital y aprobado antes de iniciar", tspec2_label: "Visualizas tu sonrisa terminada desde la primera cita.",
+    tspec3_unit: "minutos de curado VALO X por sesión", tspec3_label: "Restauraciones más fuertes y duraderas, con menos tiempo en la silla.",
 
-    test_eyebrow:{ es:"Testimonios", en:"Testimonials" },
-    test_h2:{ es:"Historias de <em>sonrisas</em> transformadas", en:"Stories of <em>transformed</em> smiles" },
-    test_p:{ es:"Ejemplo del formato — se reemplazará con testimonios reales de pacientes.", en:"Format example — will be replaced with real patient testimonials." },
-    test1_q:{ es:"Viajé desde Miami para mi diseño de sonrisa y el proceso fue impecable, desde la primera videollamada hasta el resultado final.", en:"I flew in from Miami for my smile design and the process was flawless, from the first video call to the final result." },
-    test1_name:{ es:"Paciente — Miami, FL", en:"Patient — Miami, FL" },
-    test2_q:{ es:"Mis lentes cerámicos se ven completamente naturales. Nadie nota que son carillas, solo que sonrío distinto.", en:"My porcelain veneers look completely natural. No one notices they're veneers — they just notice I smile differently." },
-    test2_name:{ es:"Paciente — Medellín", en:"Patient — Medellín" },
-    test3_q:{ es:"La atención bilingüe hizo todo más fácil para mi familia en Maracaibo. Muy profesional en cada etapa.", en:"Bilingual care made everything easier for my family in Maracaibo. Very professional at every step." },
-    test3_name:{ es:"Paciente — Maracaibo", en:"Patient — Maracaibo" },
-    test_example_tag:{ es:"Ejemplo", en:"Example" },
-    test_example_tag2:{ es:"Ejemplo", en:"Example" },
-    test_example_tag3:{ es:"Ejemplo", en:"Example" },
+    ba_before: "Antes", ba_after: "Después",
+    ba_caption: "Vista previa interactiva — se reemplazará con casos reales aprobados por la doctora",
+    ba_eyebrow: "Resultados", ba_h2: 'Arrastra y descubre la <em>transformación</em>',
+    ba_li1: "Simulación digital previa: sabes cómo lucirá tu sonrisa antes de empezar el tratamiento.",
+    ba_li2: "Alineadores y brackets estéticos de alta gama, cómodos y discretos.",
+    ba_li3: "Seguimiento fotográfico y digital documentado en cada control.",
 
-    loc_eyebrow:{ es:"Sedes", en:"Locations" },
-    loc_h2:{ es:"Te atendemos en <em>tres ciudades</em>", en:"We see patients in <em>three cities</em>" },
-    loc1_tag:{ es:"Sede principal", en:"Main location" },
-    loc1_p:{ es:"Consultorio principal — agenda de valoraciones presenciales y para pacientes internacionales.", en:"Main office — in-person consultations and international patient scheduling." },
-    loc2_tag:{ es:"Colombia", en:"Colombia" },
-    loc2_p:{ es:"Atención periódica — consulta disponibilidad de agenda.", en:"Periodic visits — ask about upcoming availability." },
-    loc3_tag:{ es:"Venezuela", en:"Venezuela" },
-    loc3_p:{ es:"Atención periódica — consulta disponibilidad de agenda.", en:"Periodic visits — ask about upcoming availability." },
+    space_eyebrow: "El consultorio",
+    space_h2: "Un espacio que se siente tan cuidado como el tratamiento",
+    space_p: "Madera cálida, mármol, luz natural y líneas curvas — cada detalle del consultorio se pensó para bajar el pulso antes de sentarte en la silla.",
 
-    cta_h2:{ es:"¿Lista para diseñar tu nueva sonrisa?", en:"Ready to design your new smile?" },
-    cta_btn1:{ es:"Escríbenos por WhatsApp", en:"Message Us on WhatsApp" },
-    cta_btn2:{ es:"Ver Instagram", en:"View Instagram" },
+    tourism_eyebrow: "Pacientes internacionales", tourism_h2: 'Tu sonrisa, tu <em>próximo viaje</em>',
+    tourism_p: "Cada vez más pacientes de Estados Unidos combinan su tratamiento de ortodoncia con unos días en Colombia. Coordinamos tu plan de tratamiento por videollamada antes de tu llegada para aprovechar cada visita al máximo.",
+    tourism_cta: "Planear mi viaje y tratamiento",
+    tourism_row1: "Costo promedio en EE.UU.", tourism_price1: "$$$$",
+    tourism_row2: "Con Dra. Castaño en Montería", tourism_price2: "$$",
+    tourism_row3: "Incluye coordinación de tu visita", tourism_price3: "Sí",
+    tourism_note: "*Referencial. Los tratamientos de ortodoncia en Colombia suelen tener un costo significativamente menor que en Estados Unidos, con la misma tecnología y estándares internacionales. Valores exactos se confirman en la valoración virtual.",
 
-    contact_eyebrow:{ es:"Contacto", en:"Contact" },
-    contact_h2:{ es:"Cuéntanos sobre tu sonrisa ideal", en:"Tell us about your ideal smile" },
-    f_name:{ es:"Nombre completo", en:"Full name" },
-    f_country:{ es:"País / Ciudad", en:"Country / City" },
-    f_email:{ es:"Correo electrónico", en:"Email address" },
-    f_phone:{ es:"WhatsApp / Teléfono", en:"WhatsApp / Phone" },
-    f_service:{ es:"Procedimiento de interés", en:"Procedure of interest" },
-    f_opt1:{ es:"Diseño de sonrisa", en:"Smile design" },
-    f_opt2:{ es:"Lentes cerámicos", en:"Porcelain veneers" },
-    f_opt3:{ es:"Blanqueamiento dental", en:"Teeth whitening" },
-    f_opt4:{ es:"Otro / No estoy segura", en:"Other / Not sure yet" },
-    f_msg:{ es:"Mensaje", en:"Message" },
-    f_submit:{ es:"Enviar solicitud", en:"Send Request" },
-    f_note:{ es:"Formulario de demostración — se conectará a WhatsApp Business / correo real antes del lanzamiento.", en:"Demo form — will be connected to WhatsApp Business / a live inbox before launch." },
+    test_eyebrow: "Testimonios", test_h2: 'Historias de <em>sonrisas</em> transformadas',
+    test_p: "Ejemplo del formato — se reemplazará con testimonios reales de pacientes.",
+    test1_q: "Viajé desde Miami para mi ortodoncia y pude ver el consultorio y la tecnología por videollamada antes de reservar el vuelo. El proceso fue impecable de principio a fin.",
+    test1_name: "Paciente — Miami, FL", test_example_tag: "Ejemplo",
+    test2_q: "El escaneo digital reemplazó los moldes incómodos que recordaba de mi ortodoncia anterior. Vi mi sonrisa final en pantalla antes de empezar.",
+    test2_name: "Paciente — Bogotá", test_example_tag2: "Ejemplo",
+    test3_q: "La atención bilingüe hizo todo más fácil para mi familia. Muy profesional en cada etapa, y el consultorio se siente más spa que clínica.",
+    test3_name: "Paciente — Houston, TX", test_example_tag3: "Ejemplo",
 
-    ci1_b:{ es:"WhatsApp directo", en:"Direct WhatsApp" },
-    ci1_s:{ es:"Respuesta prioritaria para pacientes internacionales", en:"Priority response for international patients" },
-    ci2_b:{ es:"Instagram", en:"Instagram" },
-    ci3_b:{ es:"Sede principal", en:"Main location" },
-    ci3_s:{ es:"Montería, Córdoba · Colombia", en:"Montería, Córdoba · Colombia" },
-    ci4_b:{ es:"Pagos internacionales", en:"International Payments" },
-    ci4_s:{ es:"Próximamente: pagos en USD para pacientes de Estados Unidos", en:"Coming soon: USD payments for U.S. patients" },
+    cta_h2: "¿Lista para diseñar tu nueva sonrisa?",
+    cta_btn1: "Escríbenos por WhatsApp", cta_btn2: "Ver Instagram",
 
-    fcol1_h:{ es:"Navegación", en:"Navigation" },
-    fcol2_h:{ es:"Sedes", en:"Locations" },
-    fcol3_h:{ es:"Contacto", en:"Contact" },
-    footer_copy:{ es:"© 2026 Dra. Alejandra Castaño. Propuesta de sitio web — versión demo.", en:"© 2026 Dra. Alejandra Castaño. Website proposal — demo version." }
-  };
+    contact_eyebrow: "Contacto", contact_h2: "Cuéntanos sobre tu sonrisa ideal",
+    f_name: "Nombre completo", f_country: "País / Ciudad", f_email: "Correo electrónico", f_phone: "WhatsApp / Teléfono",
+    f_service: "Tratamiento de interés",
+    f_opt1: "Ortodoncia (brackets o alineadores)", f_opt2: "Diseño de sonrisa / carillas",
+    f_opt3: "Blanqueamiento dental", f_opt4: "Otro / No estoy segura",
+    f_msg: "Mensaje", f_submit: "Enviar solicitud",
+    f_note: "Formulario de demostración — se conectará a WhatsApp Business / correo real antes del lanzamiento.",
 
-  var htmlKeys = { hero_h1:1, services_h2:1, ba_h2:1, tourism_h2:1, test_h2:1, loc_h2:1, tourism_cta:1, nav_results:1 };
+    ci1_b: "WhatsApp directo", ci1_s: "Respuesta prioritaria para pacientes internacionales",
+    ci2_b: "Instagram",
+    ci3_b: "Consultorio", ci3_s: "Montería, Córdoba · Colombia",
+    ci4_b: "Pagos internacionales", ci4_s: "Próximamente: pagos en USD para pacientes de Estados Unidos",
 
-  function applyLang(lang){
-    document.documentElement.lang = lang;
-    document.querySelectorAll("[data-i18n]").forEach(function(el){
-      var key = el.getAttribute("data-i18n");
-      var entry = dict[key];
-      if(!entry) return;
-      var val = entry[lang] || entry.es;
-      if(htmlKeys[key]){ el.innerHTML = val; } else { el.textContent = val; }
-    });
-    document.querySelectorAll(".lang-btn").forEach(function(btn){
-      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
-    });
-    try{ localStorage.setItem("ac_lang", lang); }catch(e){}
+    fcol1_h: "Navegación", fcol2_h: "Consultorio", fcol3_h: "Contacto",
+    footer_loc: "Montería, Colombia", footer_hours: "Citas con agenda previa",
+    footer_copy: "© 2026 Dra. Alejandra Castaño. Propuesta de sitio web — versión demo."
+  },
+  en: {
+    nav_tech: "Technology", nav_services: "Treatments", nav_results: "Results",
+    nav_tourism: "International Patients", nav_contact: "Contact", nav_cta: "Book your consult",
+    logo_tag: "Art in your smile", logo_tag2: "Art in your smile",
+
+    hero_bg_word: "PRECISION",
+    hero_eyebrow: "Precision orthodontics · Montería, Colombia",
+    hero_h1: "Smiles designed with the most advanced technology in the region",
+    hero_lede: "3D digital scanning, millimeter-precise planning and a clinic built for calm — so patients from the US and across Latin America can evaluate and trust their treatment before they even book a flight.",
+    hero_cta_primary: "Book your virtual consult",
+    hero_cta_secondary: "See our technology",
+    stat_community: "Instagram community",
+    stat_precision: "Digital scan precision",
+    stat_lang: "Bilingual care",
+
+    spec_scan_label: "3D SCAN", spec_material_label: "CERAMIC", spec_material_value: "High translucency",
+    veneer_caption: "Interactive 3D model — drag to rotate",
+
+    trust_1: "Intraoral scanner, no molds", trust_2: "Next-gen curing light",
+    trust_3: "Patients who follow us", trust_4: "Bilingual care",
+
+    problem_eyebrow: "The challenge of evaluating from afar",
+    problem_h2: "Choosing a clinic in another country shouldn't feel like a leap of faith",
+    problem_p: "Most international patients only have photos and reviews to decide where to trust their smile. We believe you should be able to see the technology, the space and the exact process — before you even book a flight.",
+
+    pillars_eyebrow: "Our approach",
+    pillars_h2: 'Three reasons patients <em>travel</em> to Montería',
+    pillar1_h: "Technology most clinics don't have",
+    pillar1_p: "3Shape TRIOS 3 intraoral scanner and VALO X curing light — the same equipment used by leading clinics in Miami and New York.",
+    pillar2_h: "You see your result before you start",
+    pillar2_p: "A digital 3D design of your smile and orthodontic plan, so you approve every detail before we touch a single tooth.",
+    pillar3_h: "A space designed for calm",
+    pillar3_p: "Warm wood, natural light, clean lines — built so a dental visit feels like anything but a dental visit.",
+
+    tech_eyebrow: "Technology · Digital precision", tech_word_1: "TRUST",
+    tech_lede: "Every veneer and every orthodontic movement is planned digitally first, with exact data — not guesswork.",
+    tspec1_unit: "mm margin of error", tspec1_label: "3Shape TRIOS 3 intraoral scan — no molds, no uncomfortable impressions.",
+    tspec2_unit: "% of your plan, digital and approved before starting", tspec2_label: "You see your finished smile from the first appointment.",
+    tspec3_unit: "minutes of VALO X curing per session", tspec3_label: "Stronger, longer-lasting restorations, with less time in the chair.",
+
+    ba_before: "Before", ba_after: "After",
+    ba_caption: "Interactive preview — will be replaced with real cases approved by the doctor",
+    ba_eyebrow: "Results", ba_h2: 'Drag to reveal the <em>transformation</em>',
+    ba_li1: "See your smile in advance with digital simulation before treatment begins.",
+    ba_li2: "High-end, comfortable and discreet aligners and aesthetic brackets.",
+    ba_li3: "Photographic and digital progress tracking at every check-up.",
+
+    space_eyebrow: "The clinic",
+    space_h2: "A space that feels as considered as the treatment itself",
+    space_p: "Warm wood, marble, natural light and soft curves — every detail of the clinic was designed to slow your pulse before you sit in the chair.",
+
+    tourism_eyebrow: "International patients", tourism_h2: 'Your smile, your <em>next trip</em>',
+    tourism_p: "More and more US patients are combining orthodontic treatment with a few days in Colombia. We coordinate your treatment plan over video call before you arrive, to make the most of every visit.",
+    tourism_cta: "Plan my trip and treatment",
+    tourism_row1: "Average cost in the U.S.", tourism_price1: "$$$$",
+    tourism_row2: "With Dr. Castaño in Montería", tourism_price2: "$$",
+    tourism_row3: "Includes trip coordination", tourism_price3: "Yes",
+    tourism_note: "*For reference only. Orthodontic treatment in Colombia is typically significantly less expensive than in the US, with the same technology and international standards. Exact costs are confirmed at your virtual consult.",
+
+    test_eyebrow: "Testimonials", test_h2: 'Stories of transformed <em>smiles</em>',
+    test_p: "Sample format — will be replaced with real patient testimonials.",
+    test1_q: "I flew in from Miami for my orthodontics and got to see the clinic and the technology on a video call before booking my flight. The process was flawless from start to finish.",
+    test1_name: "Patient — Miami, FL", test_example_tag: "Sample",
+    test2_q: "The digital scan replaced the uncomfortable molds I remembered from my previous orthodontic treatment. I saw my final smile on screen before we even started.",
+    test2_name: "Patient — Bogotá", test_example_tag2: "Sample",
+    test3_q: "Bilingual care made everything easier for my family. Very professional at every step, and the clinic feels more like a spa than a clinic.",
+    test3_name: "Patient — Houston, TX", test_example_tag3: "Sample",
+
+    cta_h2: "Ready to design your new smile?",
+    cta_btn1: "Message us on WhatsApp", cta_btn2: "See Instagram",
+
+    contact_eyebrow: "Contact", contact_h2: "Tell us about your ideal smile",
+    f_name: "Full name", f_country: "Country / City", f_email: "Email", f_phone: "WhatsApp / Phone",
+    f_service: "Treatment of interest",
+    f_opt1: "Orthodontics (braces or aligners)", f_opt2: "Smile design / veneers",
+    f_opt3: "Teeth whitening", f_opt4: "Other / Not sure yet",
+    f_msg: "Message", f_submit: "Send request",
+    f_note: "Demo form — will connect to WhatsApp Business / a real inbox before launch.",
+
+    ci1_b: "Direct WhatsApp", ci1_s: "Priority response for international patients",
+    ci2_b: "Instagram",
+    ci3_b: "Clinic", ci3_s: "Montería, Córdoba · Colombia",
+    ci4_b: "International payments", ci4_s: "Coming soon: USD payments for US patients",
+
+    fcol1_h: "Navigation", fcol2_h: "Clinic", fcol3_h: "Contact",
+    footer_loc: "Montería, Colombia", footer_hours: "Appointments by scheduled booking",
+    footer_copy: "© 2026 Dr. Alejandra Castaño. Website proposal — demo version."
   }
+};
 
-  document.querySelectorAll(".lang-btn").forEach(function(btn){
-    btn.addEventListener("click", function(){ applyLang(btn.getAttribute("data-lang")); });
+function applyLang(lang){
+  const dict = translations[lang] || translations.es;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
   });
+  document.documentElement.setAttribute("lang", lang);
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+  });
+  try{ localStorage.setItem("ac_lang", lang); }catch(e){}
+}
 
-  var savedLang = "es";
-  try{ savedLang = localStorage.getItem("ac_lang") || "es"; }catch(e){}
-  applyLang(savedLang);
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
+});
 
-  /* ================= Mobile menu ================= */
-  var menuToggle = document.getElementById("menuToggle");
-  var navLinks = document.querySelector(".nav-links");
-  if(menuToggle){
-    menuToggle.addEventListener("click", function(){
-      var open = navLinks.style.display === "flex";
-      if(open){
-        navLinks.style.display = "";
-      }else{
-        navLinks.style.cssText = "display:flex; position:fixed; top:76px; left:0; right:0; background:#0b0b0c; flex-direction:column; padding:24px 28px; gap:22px; border-bottom:1px solid #2a2a2d;";
+/* ---------------- reveal on scroll ---------------- */
+const revealItems = document.querySelectorAll("[data-reveal]");
+if("IntersectionObserver" in window){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("in");
+        io.unobserve(entry.target);
       }
     });
-  }
+  }, { threshold: 0.15 });
+  revealItems.forEach(el => io.observe(el));
+} else {
+  revealItems.forEach(el => el.classList.add("in"));
+}
 
-  /* ================= Before / After slider ================= */
-  var baInput = document.getElementById("baInput");
-  var baAfter = document.getElementById("baAfter");
-  var baHandle = document.getElementById("baHandle");
-  function updateSlider(v){
-    baAfter.style.clipPath = "inset(0 0 0 " + v + "%)";
-    baHandle.style.left = v + "%";
-  }
-  if(baInput){
-    baInput.addEventListener("input", function(){ updateSlider(baInput.value); });
-    updateSlider(50);
-  }
-
-  /* ================= Scroll reveal ================= */
-  var revealEls = document.querySelectorAll("[data-reveal]");
-  if("IntersectionObserver" in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add("in");
-          io.unobserve(entry.target);
+/* ---------------- tech spec counters ---------------- */
+const specRows = document.querySelectorAll(".tech-spec-row");
+if(specRows.length && "IntersectionObserver" in window){
+  const specIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("in");
+        const numEl = entry.target.querySelector(".tech-spec-num");
+        const target = parseFloat(numEl.getAttribute("data-count"));
+        const isDecimal = target < 1 || target % 1 !== 0;
+        let start = 0;
+        const dur = 1400;
+        const t0 = performance.now();
+        function step(now){
+          const p = Math.min(1, (now - t0) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const val = target * eased;
+          numEl.textContent = isDecimal ? val.toFixed(2) : Math.round(val);
+          if(p < 1) requestAnimationFrame(step);
         }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(function(el){ io.observe(el); });
-  }else{
-    revealEls.forEach(function(el){ el.classList.add("in"); });
-  }
-
-  /* ================= Topbar shrink on scroll ================= */
-  var topbar = document.querySelector(".topbar");
-  window.addEventListener("scroll", function(){
-    if(window.scrollY > 20){ topbar.style.background = "rgba(11,11,12,.92)"; }
-    else{ topbar.style.background = "rgba(11,11,12,.72)"; }
-  });
-
-  /* ================= Instagram stats (live-ready) =================
-     Reads assets/followers.json — a static file today, refreshed by
-     hand. Once the account is connected via the Instagram Graph API,
-     a scheduled GitHub Action can overwrite this file automatically
-     and the numbers below update with zero code changes. */
-  fetch("assets/followers.json", { cache: "no-store" })
-    .then(function(r){ return r.ok ? r.json() : null; })
-    .then(function(data){
-      if(!data) return;
-      var stats = document.querySelectorAll(".ig-stats b");
-      if(stats.length === 3){
-        stats[0].textContent = data.posts;
-        stats[1].textContent = data.display;
-        stats[2].textContent = data.following;
+        requestAnimationFrame(step);
+        specIo.unobserve(entry.target);
       }
-    })
-    .catch(function(){ /* keep the values already in the HTML */ });
-
-  /* ================= Demo contact form ================= */
-  var form = document.getElementById("demoForm");
-  if(form){
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      var lang = document.documentElement.lang === "en" ? "en" : "es";
-      var msg = lang === "en"
-        ? "Thanks! This is a demo form — in the live site this will reach WhatsApp / email directly."
-        : "¡Gracias! Este es un formulario de demostración — en el sitio real esto llegará directo por WhatsApp / correo.";
-      alert(msg);
-      form.reset();
     });
-  }
+  }, { threshold: 0.4 });
+  specRows.forEach(row => specIo.observe(row));
+}
+
+/* ---------------- before / after slider ---------------- */
+const baInput = document.getElementById("baInput");
+const baAfter = document.getElementById("baAfter");
+const baHandle = document.getElementById("baHandle");
+function setBA(value){
+  baAfter.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+  baHandle.style.left = value + "%";
+}
+if(baInput){
+  setBA(50);
+  baInput.addEventListener("input", e => setBA(e.target.value));
+}
+
+/* ---------------- mobile menu ---------------- */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
+if(menuToggle && navLinks){
+  menuToggle.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("mobile-open");
+    menuToggle.setAttribute("aria-expanded", open);
+  });
+  navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("mobile-open")));
+}
+
+/* ---------------- demo form ---------------- */
+const demoForm = document.getElementById("demoForm");
+if(demoForm){
+  demoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const btn = demoForm.querySelector("button[type=submit]");
+    const original = btn.textContent;
+    btn.textContent = document.documentElement.lang === "en" ? "Thank you — we'll be in touch" : "Gracias — te contactaremos pronto";
+    btn.disabled = true;
+    setTimeout(() => { btn.textContent = original; btn.disabled = false; demoForm.reset(); }, 3200);
+  });
+}
+
+/* ---------------- init ---------------- */
+(function initLang(){
+  let saved = "es";
+  try{ saved = localStorage.getItem("ac_lang") || "es"; }catch(e){}
+  applyLang(saved);
 })();
