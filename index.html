@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dra. Alejandra Castaño — Ortodoncia de Precisión en Montería, Colombia</title>
-<meta name="description" content="Ortodoncia y diseño de sonrisa de precisión digital en Montería, Colombia. Tecnología 3Shape TRIOS 3 y VALO X. Atención bilingüe para pacientes de Estados Unidos y Latinoamérica.">
+<title>Alejandra Cataño — Smile Design, Caribbean Coast</title>
+<meta name="description" content="Precision smile design and cutting-edge dental technology in Montería, Colombia — a world-class Caribbean city. Bilingual care for international patients.">
 <link rel="icon" type="image/png" href="assets/logo/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,23 +19,19 @@
   <div class="wrap topbar-inner">
     <a href="#top" class="logo">
       <img src="assets/logo/ac-negro.png" alt="AC" class="logo-mark">
-      <span class="logo-text"><strong>Alejandra Castaño</strong><small data-i18n="logo_tag">Arte en tu sonrisa</small></span>
+      <span class="logo-text"><strong>Alejandra Cataño</strong><small>Arte en tu sonrisa</small></span>
     </a>
 
     <nav class="nav-links">
-      <a href="#tecnologia" data-i18n="nav_tech">Tecnología</a>
-      <a href="#tratamientos" data-i18n="nav_services">Tratamientos</a>
-      <a href="#resultados" data-i18n="nav_results">Resultados</a>
-      <a href="#turismo" data-i18n="nav_tourism">Pacientes Internacionales</a>
-      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      <a href="#solution">Smile Design</a>
+      <a href="#technology">Technology</a>
+      <a href="#monteria">Montería</a>
+      <a href="#before-after">Before &amp; After</a>
+      <a href="#contact">Contact</a>
     </nav>
 
     <div class="nav-right">
-      <div class="lang-toggle" role="group" aria-label="Language selector">
-        <button type="button" class="lang-btn active" data-lang="es">ES</button>
-        <button type="button" class="lang-btn" data-lang="en">EN</button>
-      </div>
-      <a class="btn btn-primary btn-sm" href="https://wa.link/28c6gt" target="_blank" rel="noopener" data-i18n="nav_cta">Agenda tu valoración</a>
+      <a class="btn btn-primary btn-sm" href="https://wa.link/28c6gt" target="_blank" rel="noopener">Book a Consultation</a>
       <button class="menu-toggle" aria-label="Menu" id="menuToggle">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -46,320 +42,249 @@
 <main id="top">
 
   <!-- ============ HERO ============ -->
-  <section class="hero">
-    <div class="hero-bg-word" aria-hidden="true" data-i18n="hero_bg_word">PRECISIÓN</div>
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow" data-i18n="hero_eyebrow">Ortodoncia de precisión · Montería, Colombia</div>
-        <h1 data-i18n="hero_h1">Sonrisas diseñadas con la tecnología más avanzada de la región</h1>
-        <p class="lede" data-i18n="hero_lede">Escaneo digital 3D, planeación milimétrica y un consultorio pensado para la calma — para que pacientes de Estados Unidos y toda Latinoamérica puedan evaluar y confiar en su tratamiento antes incluso de viajar.</p>
+  <section class="hero" id="hero">
+    <div class="hero-media-wrap" id="heroMediaWrap">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/img/veneers-assembled.png">
+        <source src="assets/veneer-transition.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
 
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://wa.link/28c6gt" target="_blank" rel="noopener" data-i18n="hero_cta_primary">Reserva tu valoración virtual</a>
-          <a class="btn btn-ghost" href="#tecnologia" data-i18n="hero_cta_secondary">Ver nuestra tecnología</a>
-        </div>
+    <div class="hero-bg-word" aria-hidden="true">PRECISION</div>
 
-        <div class="hero-stats">
-          <div class="hero-stat"><b>18.5K+</b><span data-i18n="stat_community">Comunidad en Instagram</span></div>
-          <div class="hero-stat"><b>0.01mm</b><span data-i18n="stat_precision">Precisión de escaneo digital</span></div>
-          <div class="hero-stat"><b>ES · EN</b><span data-i18n="stat_lang">Atención bilingüe</span></div>
-        </div>
-      </div>
-
-      <div class="hero-visual" data-reveal>
-        <div class="veneer-stage" id="veneerStage">
-          <canvas id="veneerCanvas"></canvas>
-          <div class="veneer-glow"></div>
-          <div class="spec-chip spec-chip--a">
-            <span class="spec-chip-label" data-i18n="spec_scan_label">ESCANEO 3D</span>
-            <span class="spec-chip-value">TRIOS 3</span>
-          </div>
-          <div class="spec-chip spec-chip--b">
-            <span class="spec-chip-label" data-i18n="spec_material_label">CERÁMICA</span>
-            <span class="spec-chip-value" data-i18n="spec_material_value">Alta translucidez</span>
-          </div>
-          <div class="veneer-caption" data-i18n="veneer_caption">Modelo 3D interactivo — arrastra para girar</div>
-        </div>
+    <div class="wrap hero-inner" id="heroInner">
+      <div class="badge">PRECISION SMILE DESIGN — MONTERÍA, COLOMBIA</div>
+      <h1>Smile Design,<br>Caribbean Coast.</h1>
+      <p class="lede">Montería: a world-class Caribbean city — beaches, river, an international airport, and now, the destination for your new smile.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.link/28c6gt" target="_blank" rel="noopener">Plan Your Visit</a>
+        <a class="btn btn-ghost" href="#technology">See our technology</a>
       </div>
     </div>
+
     <div class="scroll-cue" aria-hidden="true"><span></span></div>
-  </section>
 
-  <!-- ============ TRUST STRIP ============ -->
-  <section class="trust">
-    <div class="wrap">
-      <div class="trust-item"><b>3Shape TRIOS 3</b><span data-i18n="trust_1">Escáner intraoral, sin moldes</span></div>
-      <div class="trust-item"><b>VALO X</b><span data-i18n="trust_2">Curado de última generación</span></div>
-      <div class="trust-item"><b>18.5K+</b><span data-i18n="trust_3">Pacientes que nos siguen</span></div>
-      <div class="trust-item"><b>ES / EN</b><span data-i18n="trust_4">Atención bilingüe</span></div>
-    </div>
+    <svg class="arc-divider arc-divider--dark-to-light" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,20 Q720,90 1440,20 L1440,90 L0,90 Z"/>
+      <path class="arc-line" d="M0,20 Q720,90 1440,20" fill="none"/>
+    </svg>
   </section>
 
   <!-- ============ PROBLEM ============ -->
   <section class="problem">
-    <div class="wrap problem-wrap">
-      <div class="eyebrow" data-i18n="problem_eyebrow">El reto de evaluar a distancia</div>
-      <h2 data-i18n="problem_h2">Elegir un consultorio en otro país no debería sentirse como un salto de fe</h2>
-      <p data-i18n="problem_p">La mayoría de pacientes internacionales solo tienen fotos y reseñas para decidir dónde confiar su sonrisa. Nosotros creemos que deberías poder ver la tecnología, el espacio y el proceso exacto — antes de reservar un vuelo.</p>
+    <div class="wrap problem-wrap" data-reveal>
+      <div class="eyebrow">The challenge of evaluating from afar</div>
+      <h2>Trusting a clinic in another country with your smile shouldn't feel like a leap of faith</h2>
+      <p>Finding a dentist you truly trust with your smile shouldn't mean settling — for outdated technology, rushed appointments, or a clinic that feels like a hospital. And finding a destination worth the trip? That's rarer still.</p>
     </div>
   </section>
 
-  <!-- ============ SOLUTION PILLARS ============ -->
-  <section id="tratamientos" class="pillars">
+  <!-- ============ SOLUTION ============ -->
+  <section id="solution" class="pillars">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <div class="eyebrow" data-i18n="pillars_eyebrow">Nuestro enfoque</div>
-        <h2 data-i18n="pillars_h2">Tres razones por las que <em>viajan</em> hasta Montería</h2>
+        <div class="eyebrow">Our approach</div>
+        <h2>Three reasons patients <em>travel</em> to Montería</h2>
       </div>
 
       <div class="pillars-grid" data-reveal>
         <div class="pillar-card">
-          <span class="num">01</span>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/><circle cx="17" cy="16" r="1.2" fill="currentColor" stroke="none"/></svg>
-          <h3 data-i18n="pillar1_h">Tecnología que otros consultorios no tienen</h3>
-          <p data-i18n="pillar1_p">Escáner intraoral 3Shape TRIOS 3 y lámpara de curado VALO X: mismos equipos que las clínicas líderes de Miami y Nueva York.</p>
+          <h3>Precision Technology</h3>
+          <p>Digital smile design, 3D imaging, and materials trusted by top clinics worldwide.</p>
         </div>
         <div class="pillar-card">
-          <span class="num">02</span>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10c0-4 3-7 8-7s8 3 8 7c0 5-2 11-4 11-1.5 0-2-3-4-3s-2.5 3-4 3c-2 0-4-6-4-11Z"/></svg>
-          <h3 data-i18n="pillar2_h">Ves tu resultado antes de empezar</h3>
-          <p data-i18n="pillar2_p">Diseño digital 3D de tu sonrisa y tu plan de ortodoncia, para que apruebes cada detalle antes de tocar un solo diente.</p>
+          <h3>Artistry, Not Assembly Line</h3>
+          <p>Every smile is designed individually, by hand, by Dra. Alejandra Cataño.</p>
         </div>
         <div class="pillar-card">
-          <span class="num">03</span>
           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
-          <h3 data-i18n="pillar3_h">Un espacio diseñado para la calma</h3>
-          <p data-i18n="pillar3_p">Madera cálida, luz natural y líneas limpias — pensado para que la visita al odontólogo se sienta como todo menos una visita al odontólogo.</p>
+          <h3>A City Worth the Trip</h3>
+          <p>Beaches, river culture, and an international airport minutes from the chair.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ TECH / PINNED 3D SECTION ============ -->
-  <section id="tecnologia" class="tech-pin">
-    <div class="tech-pin-inner" id="techPinInner">
-      <div class="tech-canvas-wrap">
-        <canvas id="techCanvas"></canvas>
-      </div>
-      <div class="tech-copy">
-        <div class="eyebrow eyebrow--light" data-i18n="tech_eyebrow">Tecnología · Aerodinámica de precisión</div>
-        <h2 class="tech-word" data-i18n="tech_word_1">CONFIANZA</h2>
-        <p class="tech-lede" data-i18n="tech_lede">Cada carilla y cada movimiento ortodóntico se planea primero en digital, con datos exactos — no a ojo.</p>
+  <!-- ============ TECHNOLOGY / FEATURES ============ -->
+  <section id="technology" class="tech">
+    <div class="wrap tech-grid">
+      <div class="tech-copy" data-reveal>
+        <div class="eyebrow">Technology · Digital precision</div>
+        <h2>What Makes This Different</h2>
+        <p class="tech-lede">Every veneer and every smile design is planned digitally first, with exact data — not guesswork.</p>
 
-        <div class="tech-specs">
-          <div class="tech-spec-row" data-reveal>
-            <div class="tech-spec-num" data-count="0.01">0</div>
-            <div class="tech-spec-meta">
-              <span class="tech-spec-unit" data-i18n="tspec1_unit">mm de margen de error</span>
-              <span class="tech-spec-label" data-i18n="tspec1_label">Escaneo intraoral 3Shape TRIOS 3 — sin moldes ni impresiones incómodas.</span>
-            </div>
-          </div>
-          <div class="tech-spec-row" data-reveal>
-            <div class="tech-spec-num" data-count="100">0</div>
-            <div class="tech-spec-meta">
-              <span class="tech-spec-unit" data-i18n="tspec2_unit">% del plan, digital y aprobado antes de iniciar</span>
-              <span class="tech-spec-label" data-i18n="tspec2_label">Visualizas tu sonrisa terminada desde la primera cita.</span>
-            </div>
-          </div>
-          <div class="tech-spec-row" data-reveal>
-            <div class="tech-spec-num" data-count="2">0</div>
-            <div class="tech-spec-meta">
-              <span class="tech-spec-unit" data-i18n="tspec3_unit">minutos de curado VALO X por sesión</span>
-              <span class="tech-spec-label" data-i18n="tspec3_label">Restauraciones más fuertes y duraderas, con menos tiempo en la silla.</span>
-            </div>
-          </div>
+        <ul class="tech-list">
+          <li><b>Digital Smile Design</b><span>See your new smile before treatment begins.</span></li>
+          <li><b>Advanced Composite &amp; Ceramic Materials</b><span>Natural shade-matching, engineered for durability.</span></li>
+          <li><b>State-of-the-Art Sterilization &amp; Imaging</b><span>International clinical standards, in a boutique setting.</span></li>
+          <li><b>One-on-One Care</b><span>No assembly line. Every case is personally overseen.</span></li>
+        </ul>
+      </div>
+
+      <div class="tech-specs" data-reveal>
+        <div class="tech-spec-row">
+          <div class="tech-spec-num" data-count="0.01">0</div>
+          <div class="tech-spec-meta"><span class="tech-spec-unit">mm margin of error</span></div>
+        </div>
+        <div class="tech-spec-row">
+          <div class="tech-spec-num" data-count="100">0</div>
+          <div class="tech-spec-meta"><span class="tech-spec-unit">% of your plan, digital and approved before starting</span></div>
+        </div>
+        <div class="tech-spec-row">
+          <div class="tech-spec-num" data-count="2">0</div>
+          <div class="tech-spec-meta"><span class="tech-spec-unit">minutes of curing per session</span></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ BEFORE / AFTER ============ -->
-  <section id="resultados" class="reveal-section">
+  <section id="before-after" class="reveal-section">
     <div class="wrap ba-wrap">
       <div class="ba-slider" data-reveal>
         <div class="ba-before">
-          <span class="ba-label" data-i18n="ba_before">Antes</span>
-          <svg width="90" height="52" viewBox="0 0 120 70" fill="none"><path d="M6 22 Q60 30 114 22" stroke="#7a6e60" stroke-width="4" stroke-linecap="round"/></svg>
+          <img src="assets/img/veneers-loose.png" alt="Loose dental resin veneers" loading="lazy">
+          <span class="ba-label">Loose Veneers</span>
         </div>
         <div class="ba-after" id="baAfter">
-          <span class="ba-label" data-i18n="ba_after">Después</span>
-          <svg width="90" height="52" viewBox="0 0 120 70" fill="none"><path d="M6 10 Q60 66 114 10" stroke="#B99560" stroke-width="4" stroke-linecap="round"/></svg>
+          <img src="assets/img/veneers-assembled.png" alt="Designed smile with assembled veneers" loading="lazy">
+          <span class="ba-label">Designed Smile</span>
         </div>
         <div class="ba-handle" id="baHandle"><div class="grip">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26221D" stroke-width="2.5"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg>
         </div></div>
         <input type="range" min="0" max="100" value="50" class="ba-input" id="baInput" aria-label="Compare before and after">
-        <p class="ba-caption" data-i18n="ba_caption">Vista previa interactiva — se reemplazará con casos reales aprobados por la doctora</p>
+        <p class="ba-caption">Drag to reveal the transformation</p>
       </div>
 
       <div class="ba-copy" data-reveal>
-        <div class="eyebrow" data-i18n="ba_eyebrow">Resultados</div>
-        <h2 class="serif-h2" data-i18n="ba_h2">Arrastra y descubre la <em>transformación</em></h2>
+        <div class="eyebrow">Before &amp; After</div>
+        <h2 class="serif-h2">Drag to reveal the <em>transformation</em></h2>
         <ul class="stat-list">
-          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="ba_li1">Simulación digital previa: sabes cómo lucirá tu sonrisa antes de empezar el tratamiento.</span></li>
-          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="ba_li2">Alineadores y brackets estéticos de alta gama, cómodos y discretos.</span></li>
-          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="ba_li3">Seguimiento fotográfico y digital documentado en cada control.</span></li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>See your smile in advance with digital simulation before treatment begins.</span></li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>High-end veneers and composite resin, with a natural, translucent finish.</span></li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>Photographic and digital progress tracking at every check-up.</span></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ============ SPACE / ARCHITECTURE ============ -->
-  <section class="space">
-    <div class="wrap">
-      <div class="section-head" data-reveal>
-        <div class="eyebrow" data-i18n="space_eyebrow">El consultorio</div>
-        <h2 data-i18n="space_h2">Un espacio que se siente tan cuidado como el tratamiento</h2>
-        <p data-i18n="space_p">Madera cálida, mármol, luz natural y líneas curvas — cada detalle del consultorio se pensó para bajar el pulso antes de sentarte en la silla.</p>
-      </div>
-      <div class="space-gallery" data-reveal>
-        <figure class="space-photo span-2"><img src="assets/img/room-marble-light.jpg" alt="Sala de atención con luz natural, mármol y madera" loading="lazy"></figure>
-        <figure class="space-photo"><img src="assets/img/logo-wall-gold.jpg" alt="Logotipo Alejandra Castaño en pared de madera con iluminación cálida" loading="lazy"></figure>
-        <figure class="space-photo"><img src="assets/img/reception-chairs.jpg" alt="Sala de espera con sillas y mueble de madera" loading="lazy"></figure>
-        <figure class="space-photo span-2"><img src="assets/img/room-chair-window.jpg" alt="Unidad odontológica junto a ventana con luz natural" loading="lazy"></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TOURISM ============ -->
-  <section id="turismo" class="tourism">
-    <div class="wrap tourism-grid">
-      <div data-reveal>
-        <div class="eyebrow" data-i18n="tourism_eyebrow">Pacientes internacionales</div>
-        <h2 class="serif-h2" data-i18n="tourism_h2">Tu sonrisa, tu <em>próximo viaje</em></h2>
-        <p class="tourism-p" data-i18n="tourism_p">Cada vez más pacientes de Estados Unidos combinan su tratamiento de ortodoncia con unos días en Colombia. Coordinamos tu plan de tratamiento por videollamada antes de tu llegada para aprovechar cada visita al máximo.</p>
-        <div class="hero-ctas" style="margin-top:30px;">
-          <a class="btn btn-primary" href="https://wa.link/28c6gt" target="_blank" rel="noopener" data-i18n="tourism_cta">Planear mi viaje y tratamiento</a>
-        </div>
+  <!-- ============ MONTERÍA — DESTINATION SCENE (scroll pan) ============ -->
+  <section id="monteria" class="monteria-pin">
+    <div class="monteria-pin-inner" id="monteriaPinInner">
+      <div class="monteria-copy" data-reveal>
+        <div class="eyebrow eyebrow--sea">Montería</div>
+        <h2 class="serif-h2">A <em>world-class</em> Caribbean city</h2>
+        <p>Precision smile design and cutting-edge technology, at the heart of a Caribbean city that combines beaches, a river, an international airport, and a life of its own that the world is only beginning to discover.</p>
+        <a class="btn btn-primary" href="https://wa.link/28c6gt" target="_blank" rel="noopener">Plan My Trip and My Smile</a>
       </div>
 
-      <div class="tourism-card" data-reveal>
-        <div class="tourism-row">
-          <div class="place"><span class="flag">🇺🇸</span><span data-i18n="tourism_row1">Costo promedio en EE.UU.</span></div>
-          <div class="price" data-i18n="tourism_price1">$$$$</div>
+      <div class="monteria-pan-viewport">
+        <div class="monteria-pan-track" id="monteriaPanTrack">
+          <div class="monteria-slide"><span class="monteria-slide-label">Coastline</span><span class="monteria-slide-note">Drop coastline photo here</span></div>
+          <div class="monteria-slide alt"><span class="monteria-slide-label">River</span><span class="monteria-slide-note">Drop Sinú river photo here</span></div>
+          <div class="monteria-slide"><span class="monteria-slide-label">Skyline</span><span class="monteria-slide-note">Drop city skyline photo here</span></div>
+          <div class="monteria-slide alt"><span class="monteria-slide-label">Airport</span><span class="monteria-slide-note">Drop airport photo here</span></div>
         </div>
-        <div class="tourism-row">
-          <div class="place"><span class="flag">🇨🇴</span><span data-i18n="tourism_row2">Con Dra. Castaño en Montería</span></div>
-          <div class="price" data-i18n="tourism_price2">$$</div>
-        </div>
-        <div class="tourism-row">
-          <div class="place"><span class="flag">✈️</span><span data-i18n="tourism_row3">Incluye coordinación de tu visita</span></div>
-          <div class="price" data-i18n="tourism_price3">Sí</div>
-        </div>
-        <p class="tourism-note" data-i18n="tourism_note">*Referencial. Los tratamientos de ortodoncia en Colombia suelen tener un costo significativamente menor que en Estados Unidos, con la misma tecnología y estándares internacionales. Valores exactos se confirman en la valoración virtual.</p>
       </div>
     </div>
   </section>
 
   <!-- ============ TESTIMONIALS ============ -->
-  <section id="testimonios" class="testimonials">
+  <section id="testimonials" class="testimonials">
     <div class="wrap">
       <div class="section-head center" data-reveal>
-        <div class="eyebrow" style="justify-content:center;" data-i18n="test_eyebrow">Testimonios</div>
-        <h2 data-i18n="test_h2">Historias de <em>sonrisas</em> transformadas</h2>
-        <p data-i18n="test_p">Ejemplo del formato — se reemplazará con testimonios reales de pacientes.</p>
+        <div class="eyebrow" style="justify-content:center;">Testimonials</div>
+        <h2>Stories of transformed <em>smiles</em></h2>
+        <p>Patients who flew in from the U.S. for their new smile.</p>
       </div>
       <div class="t-grid" data-reveal>
         <div class="t-card">
           <div class="t-mark">"</div>
-          <p class="quote" data-i18n="test1_q">Viajé desde Miami para mi ortodoncia y pude ver el consultorio y la tecnología por videollamada antes de reservar el vuelo. El proceso fue impecable de principio a fin.</p>
+          <p class="quote">I flew in for a long weekend and left with the smile I'd been putting off for years. The clinic felt more like a design studio than a dental office.</p>
           <div class="t-foot">
-            <span class="t-name" data-i18n="test1_name">Paciente — Miami, FL</span>
-            <span class="t-tag" data-i18n="test_example_tag">Ejemplo</span>
+            <span class="t-name">Sarah M., Miami, FL</span>
+            <span class="t-tag">Sample</span>
           </div>
         </div>
         <div class="t-card">
           <div class="t-mark">"</div>
-          <p class="quote" data-i18n="test2_q">El escaneo digital reemplazó los moldes incómodos que recordaba de mi ortodoncia anterior. Vi mi sonrisa final en pantalla antes de empezar.</p>
+          <p class="quote">I didn't expect Montería to surprise me the way it did — the city, the food, the coast. And the dental work was the best I've had, anywhere.</p>
           <div class="t-foot">
-            <span class="t-name" data-i18n="test2_name">Paciente — Bogotá</span>
-            <span class="t-tag" data-i18n="test_example_tag2">Ejemplo</span>
+            <span class="t-name">James T., Houston, TX</span>
+            <span class="t-tag">Sample</span>
           </div>
         </div>
         <div class="t-card">
           <div class="t-mark">"</div>
-          <p class="quote" data-i18n="test3_q">La atención bilingüe hizo todo más fácil para mi familia. Muy profesional en cada etapa, y el consultorio se siente más spa que clínica.</p>
+          <p class="quote">Precision, warmth, and technology I didn't expect to find here. Worth every mile.</p>
           <div class="t-foot">
-            <span class="t-name" data-i18n="test3_name">Paciente — Houston, TX</span>
-            <span class="t-tag" data-i18n="test_example_tag3">Ejemplo</span>
+            <span class="t-name">Laura K., Atlanta, GA</span>
+            <span class="t-tag">Sample</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CTA BAND ============ -->
-  <section class="cta-band">
-    <div class="wrap cta-inner">
-      <h2 data-i18n="cta_h2">¿Lista para diseñar tu nueva sonrisa?</h2>
-      <div class="cta-actions">
-        <a class="btn btn-on-cta" href="https://wa.link/28c6gt" target="_blank" rel="noopener" data-i18n="cta_btn1">Escríbenos por WhatsApp</a>
-        <a class="btn btn-on-cta ghost" href="https://www.instagram.com/dra.alejandracastanov/" target="_blank" rel="noopener" data-i18n="cta_btn2">Ver Instagram</a>
-      </div>
+  <!-- ============ PRICING ============ -->
+  <section class="pricing">
+    <div class="wrap pricing-wrap" data-reveal>
+      <div class="eyebrow" style="justify-content:center;">Pricing</div>
+      <h2 class="serif-h2">Transparent, Personalized Plans</h2>
+      <p>Every smile is different — so is every quote. Request a free virtual consultation and receive a personalized treatment plan, no surprises.</p>
+      <a class="btn btn-primary" href="https://wa.link/28c6gt" target="_blank" rel="noopener">Request a Free Quote</a>
     </div>
   </section>
 
   <!-- ============ CONTACT ============ -->
-  <section id="contacto" class="contact">
+  <section id="contact" class="contact">
     <div class="wrap contact-grid">
       <div data-reveal>
-        <div class="eyebrow" data-i18n="contact_eyebrow">Contacto</div>
-        <h2 class="serif-h2 contact-h2" data-i18n="contact_h2">Cuéntanos sobre tu sonrisa ideal</h2>
+        <div class="eyebrow">Contact</div>
+        <h2 class="serif-h2 contact-h2">Tell us about your ideal smile</h2>
         <form id="demoForm">
           <div class="two-col">
-            <div class="form-row">
-              <label data-i18n="f_name">Nombre completo</label>
-              <input type="text" name="name" required>
-            </div>
-            <div class="form-row">
-              <label data-i18n="f_country">País / Ciudad</label>
-              <input type="text" name="country">
-            </div>
+            <div class="form-row"><label>Full name</label><input type="text" name="name" required></div>
+            <div class="form-row"><label>Country / City</label><input type="text" name="country"></div>
           </div>
           <div class="two-col">
-            <div class="form-row">
-              <label data-i18n="f_email">Correo electrónico</label>
-              <input type="email" name="email" required>
-            </div>
-            <div class="form-row">
-              <label data-i18n="f_phone">WhatsApp / Teléfono</label>
-              <input type="tel" name="phone">
-            </div>
+            <div class="form-row"><label>Email</label><input type="email" name="email" required></div>
+            <div class="form-row"><label>WhatsApp / Phone</label><input type="tel" name="phone"></div>
           </div>
           <div class="form-row">
-            <label data-i18n="f_service">Tratamiento de interés</label>
+            <label>Treatment of interest</label>
             <select name="service">
-              <option data-i18n="f_opt1">Ortodoncia (brackets o alineadores)</option>
-              <option data-i18n="f_opt2">Diseño de sonrisa / carillas</option>
-              <option data-i18n="f_opt3">Blanqueamiento dental</option>
-              <option data-i18n="f_opt4">Otro / No estoy segura</option>
+              <option>Smile design / veneers</option>
+              <option>Orthodontics (braces or aligners)</option>
+              <option>Teeth whitening</option>
+              <option>Other / Not sure yet</option>
             </select>
           </div>
-          <div class="form-row">
-            <label data-i18n="f_msg">Mensaje</label>
-            <textarea name="message" placeholder=""></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;" data-i18n="f_submit">Enviar solicitud</button>
-          <p class="form-note" data-i18n="f_note">Formulario de demostración — se conectará a WhatsApp Business / correo real antes del lanzamiento.</p>
+          <div class="form-row"><label>Message</label><textarea name="message"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send request</button>
+          <p class="form-note">Demo form — will connect to WhatsApp Business / a real inbox before launch.</p>
         </form>
       </div>
 
       <div class="contact-side" data-reveal>
         <div class="info-item">
           <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></div>
-          <div><b data-i18n="ci1_b">WhatsApp directo</b><span data-i18n="ci1_s">Respuesta prioritaria para pacientes internacionales</span></div>
+          <div><b>Direct WhatsApp</b><span>Priority response for international patients</span></div>
         </div>
         <div class="info-item">
           <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 8h4M15 12h4M5 19c1-3 3-4 4-4s3 1 4 4"/></svg></div>
-          <div><b data-i18n="ci2_b">Instagram</b><span>@dra.alejandracastanov · 18.5K+</span></div>
+          <div><b>Instagram</b><span>@dra.alejandracastanov · 18.5K+</span></div>
         </div>
         <div class="info-item">
           <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-          <div><b data-i18n="ci3_b">Consultorio</b><span data-i18n="ci3_s">Montería, Córdoba · Colombia</span></div>
+          <div><b>Clinic</b><span>Montería, Córdoba · Colombia</span></div>
         </div>
         <div class="info-item">
           <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10a9 9 0 1 1 18 0c0 6-9 12-9 12S3 16 3 10Z"/><path d="M9 6l6 12M15 6l-6 12"/></svg></div>
-          <div><b data-i18n="ci4_b">Pagos internacionales</b><span data-i18n="ci4_s">Próximamente: pagos en USD para pacientes de Estados Unidos</span></div>
+          <div><b>International payments</b><span>Coming soon: USD payments for US patients</span></div>
         </div>
       </div>
     </div>
@@ -367,38 +292,52 @@
 
 </main>
 
+<svg class="arc-divider arc-divider--light-to-dark" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,70 Q720,0 1440,70 L1440,0 L0,0 Z"/>
+  <path class="arc-line" d="M0,70 Q720,0 1440,70" fill="none"/>
+</svg>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
+    <div class="footer-cta">
+      <h2>Your Next Trip Could Change Your Smile.</h2>
+      <div class="footer-cta-actions">
+        <a class="btn btn-on-cta" href="https://wa.link/28c6gt" target="_blank" rel="noopener">Book a Consultation</a>
+        <a class="btn btn-on-cta ghost" href="https://www.instagram.com/dra.alejandracastanov/" target="_blank" rel="noopener">See Instagram</a>
+      </div>
+    </div>
+
     <div class="footer-top">
       <div>
         <a href="#top" class="logo">
           <img src="assets/logo/ac-blanco.png" alt="AC" class="logo-mark">
-          <span class="logo-text"><strong>Alejandra Castaño</strong><small data-i18n="logo_tag2">Arte en tu sonrisa</small></span>
+          <span class="logo-text"><strong>Alejandra Cataño</strong><small>Arte en tu sonrisa</small></span>
         </a>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
-          <h4 data-i18n="fcol1_h">Navegación</h4>
-          <a href="#tecnologia" data-i18n="nav_tech">Tecnología</a>
-          <a href="#tratamientos" data-i18n="nav_services">Tratamientos</a>
-          <a href="#resultados" data-i18n="nav_results">Resultados</a>
-          <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+          <h4>Navigation</h4>
+          <a href="#solution">Smile Design</a>
+          <a href="#technology">Technology</a>
+          <a href="#monteria">Montería</a>
+          <a href="#before-after">Before &amp; After</a>
+          <a href="#contact">Contact</a>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="fcol2_h">Consultorio</h4>
-          <span data-i18n="footer_loc">Montería, Colombia</span>
-          <span data-i18n="footer_hours">Citas con agenda previa</span>
+          <h4>Clinic</h4>
+          <span>Montería, Colombia</span>
+          <span>Appointments by scheduled booking</span>
         </div>
         <div class="footer-col">
-          <h4 data-i18n="fcol3_h">Contacto</h4>
+          <h4>Contact</h4>
           <a href="https://wa.link/28c6gt" target="_blank" rel="noopener">WhatsApp</a>
           <a href="https://www.instagram.com/dra.alejandracastanov/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-i18n="footer_copy">© 2026 Dra. Alejandra Castaño. Propuesta de sitio web — versión demo.</span>
+      <span>© 2026 Alejandra Cataño. Website proposal — demo version.</span>
       <div class="footer-social">
         <a href="https://www.instagram.com/dra.alejandracastanov/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
@@ -415,8 +354,8 @@
   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg>
 </a>
 
-<script src="vendor/three.min.js"></script>
-<script src="veneer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
